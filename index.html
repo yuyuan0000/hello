@@ -4,14 +4,24 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Hello, Friend</title>
+
+  <!-- ✅ 图片预加载 -->
+  <link rel="preload" as="image" href="https://cdn.jsdelivr.net/gh/yuyuan0000/hello/photo_2025-01-17_20-23-58.webp" type="image/webp">
+
   <style>
+    :root {
+      --pink: #ff4081;
+      --pink-dark: #e91e63;
+      --purple: #9c27b0;
+    }
+
     body {
       margin: 0;
-      padding: 0;
+      padding: 0 1rem;
       font-family: "Segoe UI", sans-serif;
-      color: #ff4081;
+      color: var(--pink);
       text-align: center;
-      background: url('https://i.imgur.com/r6d0e5h.png') no-repeat center center;
+      background: url('https://cdn.jsdelivr.net/gh/yuyuan0000/hello/photo_2025-01-17_20-23-58.webp') no-repeat center center;
       background-size: cover;
       height: 100vh;
       display: flex;
@@ -19,12 +29,11 @@
       justify-content: center;
       align-items: center;
       backdrop-filter: brightness(0.6);
-      padding: 0 1rem;
     }
 
     h1 {
       font-size: 3.5rem;
-      background: linear-gradient(45deg, #ff4081, #e91e63, #9c27b0);
+      background: linear-gradient(45deg, var(--pink), var(--pink-dark), var(--purple));
       -webkit-background-clip: text;
       color: transparent;
       margin-bottom: 1rem;
@@ -35,7 +44,6 @@
       margin-bottom: 1rem;
       max-width: 600px;
       line-height: 1.6;
-      color: #ff4081;
     }
 
     .countdown {
@@ -44,42 +52,20 @@
       margin-top: 0.5rem;
     }
 
-    .fade-in {
-      opacity: 0;
-      transition: opacity 1.5s ease-in-out;
-      margin-top: 2rem;
-    }
-
-    .fade-in.show {
-      opacity: 1;
-    }
-
     button {
-      background-color: #ff4081;
+      background-color: var(--pink);
       border: none;
       color: white;
       padding: 1rem 2rem;
       font-size: 1.2rem;
       border-radius: 10px;
       cursor: pointer;
-      transition: background 0.3s ease, transform 0.6s ease-in-out;
-      animation: buttonPulse 2s infinite;
+      transition: background 0.3s ease;
+      margin-top: 2rem;
     }
 
     button:hover {
-      background-color: #e91e63;
-    }
-
-    @keyframes buttonPulse {
-      0% {
-        transform: scale(1);
-      }
-      50% {
-        transform: scale(1.05);
-      }
-      100% {
-        transform: scale(1);
-      }
+      background-color: var(--pink-dark);
     }
   </style>
 </head>
@@ -87,22 +73,15 @@
   <h1>Hello, Friend</h1>
   <p>Nice to meet you!</p>
   <p>Life is beautiful, and I hope to share its wonders with you!</p>
+  <p class="countdown" id="countdownText">Redirecting in 3 seconds...</p>
 
-  <p class="countdown" id="countdownText">Redirecting in 6 seconds...</p>
-
-  <div id="btnWrap" class="fade-in">
-    <button onclick="window.location.href='https://wa.me/85264459622';">
-      Send Message
-    </button>
-  </div>
+  <button onclick="window.location.href='https://wa.me/85264459622';">
+    Send Message
+  </button>
 
   <script>
-    window.onload = function () {
-      setTimeout(() => {
-        document.getElementById("btnWrap").classList.add("show");
-      }, 500);
-
-      let seconds = 6;
+    document.addEventListener("DOMContentLoaded", function () {
+      let seconds = 3;
       const countdownText = document.getElementById("countdownText");
       const interval = setInterval(() => {
         seconds--;
@@ -114,7 +93,7 @@
           window.location.href = "https://wa.me/85264459622";
         }
       }, 1000);
-    };
+    });
   </script>
 </body>
 </html>
