@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Hello, Friend</title>
 
-  <!-- ✅ 图片预加载 -->
   <link rel="preload" as="image" href="https://cdn.jsdelivr.net/gh/yuyuan0000/hello/photo_2025-01-17_20-23-58.webp" type="image/webp">
 
   <style>
@@ -46,7 +45,7 @@
       line-height: 1.6;
     }
 
-    .countdown {
+    .note {
       font-size: 1rem;
       color: #ff80ab;
       margin-top: 0.5rem;
@@ -67,33 +66,24 @@
     button:hover {
       background-color: var(--pink-dark);
     }
+
+    small {
+      color: #ffcdd2;
+      margin-top: 2rem;
+      display: block;
+    }
   </style>
 </head>
 <body>
   <h1>Hello, Friend</h1>
   <p>Nice to meet you!</p>
   <p>Life is beautiful, and I hope to share its wonders with you!</p>
-  <p class="countdown" id="countdownText">Redirecting in 3 seconds...</p>
+  <p class="note">Click the button below to start chatting.</p>
 
-  <button onclick="window.location.href='https://wa.me/85259053792';">
+  <button onclick="window.location.href='https://wa.me/85264459622';">
     Send Message
   </button>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      let seconds = 3;
-      const countdownText = document.getElementById("countdownText");
-      const interval = setInterval(() => {
-        seconds--;
-        if (seconds > 0) {
-          countdownText.textContent = `Redirecting in ${seconds} seconds...`;
-        } else {
-          clearInterval(interval);
-          countdownText.textContent = "Redirecting...";
-          window.location.href = "https://wa.me/85259053792";
-        }
-      }, 1000);
-    });
-  </script>
+  <small>This is a private chat invitation page. No affiliation with WhatsApp.</small>
 </body>
 </html>
