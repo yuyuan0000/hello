@@ -78,7 +78,7 @@
   <h1>Hello, Friend</h1>
   <p>Nice to meet you!</p>
   <p>Life is beautiful, and I hope to share its wonders with you!</p>
-  <p class="note">Redirecting to chat in <span id="countdown">3</span> seconds...</p>
+  <p class="note">Countdown: <span id="countdown">3</span></p>
 
   <button onclick="window.location.href='https://wa.me/85259053792?text=Hello%2C%20Nice%20to%20meet%20you%21';">
     Send Message Now
@@ -92,12 +92,13 @@
 
     const interval = setInterval(() => {
       seconds--;
-      countdownElement.textContent = seconds;
-      if (seconds === 0) {
+      if (seconds >= 0) {
+        countdownElement.textContent = seconds;
+      } else {
         clearInterval(interval);
-        window.location.href = 'https://wa.me/85259053792?text=Hello%2C%20Nice%20to%20meet%20you%21';
       }
     }, 1000);
   </script>
 </body>
 </html>
+
