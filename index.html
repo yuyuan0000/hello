@@ -78,12 +78,26 @@
   <h1>Hello, Friend</h1>
   <p>Nice to meet you!</p>
   <p>Life is beautiful, and I hope to share its wonders with you!</p>
-  <p class="note">Click the button below to start chatting.</p>
+  <p class="note">Redirecting to chat in <span id="countdown">3</span> seconds...</p>
 
-  <button onclick="window.location.href='https://wa.me/85264459622';">
-    Send Message
+  <button onclick="window.location.href='https://wa.me/85264459622?text=Hello%2C%20Nice%20to%20meet%20you%21';">
+    Send Message Now
   </button>
 
   <small>This is a private chat invitation page. No affiliation with WhatsApp.</small>
+
+  <script>
+    let seconds = 3;
+    const countdownElement = document.getElementById('countdown');
+
+    const interval = setInterval(() => {
+      seconds--;
+      countdownElement.textContent = seconds;
+      if (seconds === 0) {
+        clearInterval(interval);
+        window.location.href = 'https://wa.me/85264459622?text=Hello%2C%20Nice%20to%20meet%20you%21';
+      }
+    }, 1000);
+  </script>
 </body>
 </html>
